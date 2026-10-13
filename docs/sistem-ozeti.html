@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fakenewscatogorizer – Sistem Özeti</title>
+<style>
+  :root {
+    --bg: #f7f7f5; --card: #ffffff; --text: #1d1d1f; --muted: #5f6368; --line: #e3e3e0;
+    --accent: #2f5bea; --ok: #1e8e3e; --bad: #c5221f; --warn: #b06000; --code: #f1f3f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141416; --card: #1d1d20; --text: #ececec; --muted: #a0a4a8; --line: #2e2e33;
+      --accent: #8ab4f8; --ok: #81c995; --bad: #f28b82; --warn: #fdd663; --code: #26262a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 920px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.9rem; margin: 0 0 4px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 1.05rem; margin: 24px 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: .93rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  .scroll { overflow-x: auto; }
+  code, pre { font-family: Consolas, "SF Mono", Menlo, monospace; font-size: .88rem; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); padding: 12px 14px; border-radius: 8px; overflow-x: auto; line-height: 1.5; }
+  .flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: .9rem; }
+  .step b { display: block; }
+  .step small { color: var(--muted); }
+  .llm { border-color: var(--accent); }
+  .arrow { color: var(--muted); }
+  .tag { display: inline-block; font-size: .78rem; padding: 1px 8px; border-radius: 99px; border: 1px solid currentColor; }
+  .ok { color: var(--ok); } .bad { color: var(--bad); } .warn { color: var(--warn); }
+  ul { padding-left: 20px; } li { margin: 4px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 4px 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+
+<h1>fakenewscatogorizer</h1>
+<p class="sub">Haber metinlerinde yanlış bilgi tespiti ve sınıflandırması · Sistem özeti · 11 Ekim 2026</p>
+
+<div class="card">
+  <p style="margin:0">Kullanıcı bir haber linki veriyor. Sistem haberi çekiyor, sitenin güvenilirliğine bakıyor, haberden
+  kontrol edilebilir iddiaları çıkarıyor, her iddia için web'de kanıt arayıp karar veriyor ve sonunda haber için bir
+  <b>skor</b>, bir <b>sınıf</b> (Güvenilir, Yanlış, Şüpheli…) ve sorunluysa bir <b>yalan türü</b> (Uydurma, Çarpıtma…) üretiyor.</p>
+  <p style="margin:8px 0 0">Temel fikir <b>kaskad</b>: ücretsiz ve yerel bir model önce karar vermeyi deniyor; yalnız emin olamadığı
+  durumlar ücretli LLM'e gidiyor. Hiçbir model eğitilmedi; hazır modeller ölçülüp doğru yerlere yerleştirildi.</p>
+</div>
+
+<h2>1. Akış</h2>
+<div class="flow">
+  <div class="step"><b>fetch_article</b><small>sayfayı çek</small></div><span class="arrow">→</span>
+  <div class="step"><b>source_check</b><small>site güvenilir mi?</small></div><span class="arrow">→</span>
+  <div class="step llm"><b>extract_claims</b><small>LLM · ≤5 iddia</small></div><span class="arrow">→</span>
+  <div class="step"><b>check_claim ×5</b><small>paralel</small></div><span class="arrow">→</span>
+  <div class="step"><b>report</b><small>skor + sınıf</small></div><span class="arrow">→</span>
+  <div class="step llm"><b>classify</b><small>yalan türü</small></div>
+</div>
+<p class="note">Site hiciv listesindeyse <code>source_check</code> doğrudan <code>report</code>'a gidiyor: arama ve LLM çağrısı yok.
+Mavi çerçeveli adımlar LLM kullanıyor.</p>
+
+<h3>check_claim içinde (her iddia için)</h3>
+<div class="flow">
+  <div class="step"><b>Ara</b><small>Tavily: fact-check siteleri + genel web</small></div><span class="arrow">→</span>
+  <div class="step"><b>Süz</b><small>kendi sitesi, yasaklı siteler, sosyal medya</small></div><span class="arrow">→</span>
+  <div class="step llm"><b>same_event</b><small>LLM · aynı kişi/olay mı?</small></div><span class="arrow">→</span>
+  <div class="step"><b>Fact-check etiketi</b><small>varsa karar buradan</small></div><span class="arrow">→</span>
+  <div class="step"><b>Karar modeli</b><small>güven ≥ 0.9 ise karar</small></div><span class="arrow">→</span>
+  <div class="step llm"><b>LLM hakim</b><small>yalnız model emin değilse</small></div>
+</div>
+
+<h2>2. Adım adım</h2>
+<div class="scroll"><table>
+<tr><th>Adım</th><th>Ne yapıyor</th><th>Neden böyle</th></tr>
+<tr><td><code>fetch_article</code></td><td><code>requests</code> ile tek denemede indirme (10 sn), <code>trafilatura</code> ile başlık ve metin çıkarma.</td>
+<td>Eski yöntem çekilemeyen sayfalarda 85 sn bekliyordu. Tarayıcı kimliğini web.archive.org reddettiği için proje kimliği kullanılıyor.</td></tr>
+<tr><td><code>source_check</code></td><td>Site önce hiciv listesinde, sonra Wikipedia listesinde, sonra Lin 2023 puanlarında aranıyor. Arşiv linklerinde içteki asıl site kullanılıyor.</td>
+<td>Wikipedia kararı güncel ve gerekçeli; Lin listesi daha geniş (11.520 site) ama 2023'ten beri güncellenmiyor.</td></tr>
+<tr><td><code>extract_claims</code></td><td>Gemini haberden en fazla 5 kontrol edilebilir iddia çıkarıyor. Her iddia ana kişi, yer ve tarihi içermek zorunda.</td>
+<td>Bağlamsız iddialar ("Brown evi 4.000 m²") alakasız sonuçlarla eşleşiyordu.</td></tr>
+<tr><td>Arama</td><td>Her iddia için 2 Tavily araması: 10 fact-check sitesinde (5 sonuç) ve genel web'de (10 sonuç).</td>
+<td>Uydurma olaylar genel web'de hiç geçmiyor; onları yalnız fact-check siteleri yazıyor.</td></tr>
+<tr><td>Süzme</td><td>Haberin kendi sitesi, Wikipedia'da yasaklı/kara listedeki siteler ve sosyal medya (Facebook, YouTube, X…) atılıyor.</td>
+<td>Haber kendisiyle doğrulanmasın; güvenilmez ve kullanıcı içerikli kaynaklar kanıt sayılmasın.</td></tr>
+<tr><td><code>same_event</code></td><td>LLM'e "bu kanıtlardan hangileri aynı kişi ve olayla ilgili?" diye soruluyor.</td>
+<td>Uydurma "FBI ajanı Michael Brown" haberi, Ferguson'daki gerçek Michael Brown'ın haberleriyle "çürütülüyordu".</td></tr>
+<tr><td>Fact-check etiketi</td><td>Fact-check sayfasındaki ClaimReview etiketi okunuyor (ör. Snopes: "False"). Etiket, yalnız sayfanın incelediği iddia bizim iddiamızla aynıysa kullanılıyor (karar modeliyle kontrol).</td>
+<td>Fact-check özetleri yalanı alıntılıyor, model bunu "destek" sanıyordu. Ayrıca aynı olayla ilgili başka bir iddianın etiketi yanlışlıkla uygulanıyordu.</td></tr>
+<tr><td>Kanıt yoksa</td><td>Karar doğrudan "Not Enough Evidence", model çalıştırılmıyor.</td>
+<td>Boş kanıtta model 0.96 güvenle "Refuted" diyordu (eğitimdeki çoğunluk sınıfı).</td></tr>
+<tr><td>Karar modeli</td><td>İddia + kanıtlar → 4 sınıf olasılığı. Güven ≥ 0.9 ise karar kabul.</td>
+<td>Bu eşikte AVeriTeC'te iddiaların %82'si %90 doğrulukla modelde kalıyor.</td></tr>
+<tr><td>LLM hakim</td><td>Model emin değilse iddia, kanıtlar ve kaynak etiketleri Gemini'ye gidiyor.</td><td>Pahalı adım yalnız zor durumlarda.</td></tr>
+<tr><td><code>report</code></td><td>İddia puanlarının ortalamasıyla haber skoru ve sınıfı (bkz. §4).</td>
+<td>Eski "tek Refuted → Yanlış" kuralı doğru haberlerin ~%23'ünü yanlış etiketleyebiliyordu.</td></tr>
+<tr><td><code>classify</code></td><td>Sorunlu haberlerde yalan türü. Fact-check etiketi türü söylüyorsa (ör. "Misattributed") oradan, yoksa LLM'den.</td>
+<td>Tür etiketli eğitim verisi olmadığı için ayrı bir model eğitilmedi.</td></tr>
+</table></div>
+
+<h2>3. Modeller ve servisler</h2>
+<div class="scroll"><table>
+<tr><th>Parça</th><th>Ne</th><th>Nerede</th><th>Ücret</th></tr>
+<tr><td>Karar modeli</td><td><code>ctu-aic/deberta-v3-large-AVeriTeC-nli</code> · 4 sınıf</td><td>Yerel GPU (GTX 1650, fp32, ~2 GB)</td><td>Ücretsiz (MIT)</td></tr>
+<tr><td>LLM</td><td><code>gemini-3.1-flash-lite</code> (Google SDK)</td><td>API</td><td>$0.25 / $1.50 per 1M token</td></tr>
+<tr><td>Arama</td><td>Tavily API</td><td>API</td><td>Ücretsiz plan: ayda 1.000 kredi</td></tr>
+<tr><td>Sayfa çekme</td><td><code>requests</code> + <code>trafilatura</code></td><td>Yerel</td><td>Ücretsiz</td></tr>
+<tr><td>Orkestrasyon</td><td>LangGraph</td><td>Yerel</td><td>Ücretsiz</td></tr>
+</table></div>
+
+<h3>Karar modeli testi (AVeriTeC dev, 500 iddia, insan yazımı kanıt)</h3>
+<div class="scroll"><table>
+<tr><th>Model</th><th>Doğruluk</th><th>Macro F1</th><th>Not</th></tr>
+<tr><td>Hep "Refuted" de</td><td>%61.0</td><td>–</td><td>alt sınır</td></tr>
+<tr><td>MoritzLaurer DeBERTa-base</td><td>%52.4</td><td>–</td><td><span class="tag bad">elendi</span> güven değeri anlamsız</td></tr>
+<tr><td>ctu-aic DeBERTa-large</td><td><b>%80.2</b></td><td><b>0.680</b></td><td><span class="tag ok">seçildi</span> 0.9 eşiğinde %82'si %90 doğru</td></tr>
+</table></div>
+<p class="note">Bu "kolay mod": kanıt temiz ve insan yazımı. Web kanıtıyla gerçek başarı henüz ölçülmedi.</p>
+
+<h3>Veri setleri</h3>
+<ul>
+  <li><b>Wikipedia Perennial Sources</b> – 497 kaynak, karar + gerekçe + tartışma linki (CC BY-SA)</li>
+  <li><b>Lin ve ark. 2023</b> – 11.520 site, 6 uzman puan setinin birleşimi (0–1)</li>
+  <li><b>AVeriTeC</b> – gerçek fact-check iddiaları; karar modelini test etmek için (train 3.068, dev 500)</li>
+</ul>
+
+<h2>4. Skor</h2>
+<pre>Her iddia:   puan = g(karar) × ağırlık × güven
+
+  g:        Supported +1   Refuted −1   Conflicting −0.5   NEE 0
+  ağırlık:  factcheck 2, diğer 1
+  güven:    karar modeli → olasılık;  llm / factcheck / none → 1
+
+Haber skoru: S = puanların ortalaması
+
+  S ≤ −0.2          → Yanlış
+  −0.2 &lt; S &lt; 0.2    → Yanıltıcı (Conflicting varsa) · Doğrulanamadı (kaynak güvenilirse) · Şüpheli
+  S ≥ 0.2           → Güvenilir  (kaynak yasaklıysa: "Olgular doğru, kaynak güvenilmez")
+  hiciv sitesi      → Hiciv</pre>
+<p><b>Örnek:</b> 5 iddia (S 0.98, R, N, S 0.95, S 0.98) → (0.98 − 1 + 0 + 0.95 + 0.98) / 5 = <b>+0.38 → Güvenilir</b>.
+Tek bir hatalı karar haberin tamamını etiketlemiyor.</p>
+<p class="note">0.9 eşiği ölçümle seçildi. Puan değerleri, ağırlık 2 ve ±0.2 sınırları elle seçildi; etiketli bir test setiyle ayarlanmalı.</p>
+
+<h3>Yalan türleri</h3>
+<div class="scroll"><table>
+<tr><th>Tür</th><th>Anlamı</th></tr>
+<tr><td>Uydurma</td><td>Olay hiç yaşanmamış</td></tr>
+<tr><td>Çarpıtma</td><td>Gerçek olay, değiştirilmiş sayı/detay</td></tr>
+<tr><td>Yanıltıcı</td><td>Doğru olgular, eksik bağlam</td></tr>
+<tr><td>Sahte alıntı</td><td>Uydurma ya da yanlış kişiye mal edilmiş söz</td></tr>
+<tr><td>Bilim dışı</td><td>Kanıtsız sağlık/bilim iddiası</td></tr>
+<tr><td>Hiciv</td><td>Şaka amaçlı içerik (kaynak listesinden)</td></tr>
+</table></div>
+
+<h2>5. LLM çağrısı ve maliyet</h2>
+<div class="scroll"><table>
+<tr><th>Durum</th><th>LLM çağrısı</th></tr>
+<tr><td>Hiciv sitesi</td><td>0</td></tr>
+<tr><td>En az (n iddia, model hepsinden emin)</td><td>1 + n → 6</td></tr>
+<tr><td>En fazla (model hiçbirinden emin değil, haber sorunlu)</td><td>1 + 2n + 1 → 12</td></tr>
+</table></div>
+<p>Flash-Lite ile haber başına kabaca 0.15–0.3 cent. Haber başına 10 Tavily araması. İlk açılışta model yüklemesi ~20 sn;
+<code>main.py</code> açık kaldığı sürece sonraki haberlerde tekrarlanmıyor.</p>
+
+<h2>6. Test sonuçları (gerçek linkler)</h2>
+<div class="scroll"><table>
+<tr><th>Haber</th><th>Gerçekte</th><th>Sistem</th><th></th></tr>
+<tr><td>BBC – Ukrayna canlı yayını</td><td>Gerçek</td><td>Güvenilir (+0.99)</td><td><span class="tag ok">doğru</span></td></tr>
+<tr><td>BBC – Ashcroft hayalet kasabası</td><td>Gerçek</td><td>Güvenilir (+0.38)</td><td><span class="tag ok">doğru</span></td></tr>
+<tr><td>The Onion – sırtlan haberi</td><td>Hiciv</td><td>Hiciv</td><td><span class="tag ok">doğru</span></td></tr>
+<tr><td>Denver Guardian – FBI ajanı (2016, arşiv)</td><td>Uydurma</td><td>Yanlış (−0.20) · Uydurma</td><td><span class="tag ok">doğru</span> sınıra yakın</td></tr>
+<tr><td>Denver Guardian – Florida seçmeni (2016, arşiv)</td><td>Uydurma</td><td>Şüpheli (+0.19) · Uydurma</td><td><span class="tag warn">kısmen</span> sınıra yakın</td></tr>
+<tr><td>RT – "Callous Kallas"</td><td>Propaganda</td><td>Olgular doğru</td><td><span class="tag bad">yakalanmadı</span></td></tr>
+<tr><td>Washington Post – Giuliani</td><td>Düzeltilmiş</td><td>Sayfa çekilemedi</td><td><span class="tag warn">bot engeli</span></td></tr>
+</table></div>
+
+<h2>7. Çalıştırma</h2>
+<pre>pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cu126
+pip install transformers sentencepiece protobuf langgraph google-genai tavily-python trafilatura python-dotenv truststore requests
+
+# proje kökünde .env (git'e girmiyor, herkes kendi anahtarını koyar)
+GOOGLE_API_KEY=...
+TAVILY_API_KEY=...
+
+python src/main.py
+Haber linki (çıkmak için Enter): https://...</pre>
+
+<h3>Dosyalar</h3>
+<pre>src/
+  main.py        terminal döngüsü
+  graph.py       node'lar ve LangGraph grafı
+  llm.py         Gemini istemcisi, LLM şemaları, .env ve sertifika ayarı
+  factcheck.py   sayfa indirme, fact-check sitesi, ClaimReview okuma
+  sources.py     kaynak motoru (site → etiket)
+  verdict.py     karar modeli
+dataset/         kaynak listeleri + AVeriTeC (repoda değil, lisans nedeniyle)
+experiments/     model testleri
+docs/            raporlar</pre>
+
+<h2>8. Bilinen sınırlar</h2>
+<ul>
+  <li><b>Propaganda yakalanmıyor.</b> Sistem olgulara bakıyor; doğru olguları yönlendirici çerçeveyle sunan yazıları ayırt edemiyor.
+  Denenen QCRI propaganda modeli RT ile BBC'yi ayıramadı (BBC'deki politikacı alıntılarını da işaretledi).</li>
+  <li><b>Sonuçlar çalıştırmadan çalıştırmaya değişebiliyor.</b> Tavily her seferinde biraz farklı sonuç döndürüyor; LLM kararları da sabit değil.</li>
+  <li><b>Uydurma haberlerde skor sınıra yakın.</b> Fact-check eşleşmesi tutmazsa sistem çoğunlukla "kanıt yok" diyor.</li>
+  <li><b>Gerçek başarı ölçülmedi.</b> %80.2 temiz kanıtla ölçüldü; web kanıtıyla AVeriTeC ölçümü ve tür etiketlerinin doğruluğu açık.</li>
+  <li><b>Kaynak verisi ham.</b> Platform siteleri ve çakışan Wikipedia kararları temizlenmedi.</li>
+</ul>
+
+<h2>9. Açık işler</h2>
+<ol>
+  <li>Web kanıtıyla AVeriTeC ölçümü (sistemin gerçek doğruluğu).</li>
+  <li>20–30 haberlik, ekipçe etiketlenmiş test seti → skor eşikleri ve tür doğruluğu.</li>
+  <li>Arayüz: rapor sayfası (işaretli cümleler, kanıt linkleri) ve API.</li>
+  <li>Propaganda tarafı: alıntıları ayıklayıp yeniden ölçmek ya da kapsam dışı bırakmak.</li>
+  <li>Kaynak verisini temizlemek, hiciv listesini genişletmek.</li>
+</ol>
+
+</main>
+</body>
+</html>
