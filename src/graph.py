@@ -27,6 +27,8 @@ tavily = TavilyClient()
 MODEL = "gemini-3.1-flash-lite"
 THRESHOLD = 0.9
 BAD_SOURCES = {"deprecated", "blacklisted"}
+FACTCHECK_SITES = ["snopes.com", "politifact.com", "factcheck.org", "fullfact.org", "factcheck.afp.com",
+                   "leadstories.com", "africacheck.org", "checkyourfact.com", "boomlive.in", "altnews.in"]
 USER_AGENT = "fakenewscatogorizer/0.1"  # tarayıcı kimliğini web.archive.org 429 ile reddediyor
 
 
@@ -42,6 +44,10 @@ class Claims(BaseModel):
 class LLMVerdict(BaseModel):
     verdict: Literal["Supported", "Refuted", "Not Enough Evidence", "Conflicting Evidence/Cherrypicking"]
     reason: str
+
+
+class Relevant(BaseModel):
+    ids: list[int]
 
 
 def ask(prompt, schema):
@@ -93,15 +99,31 @@ def fan_out(state):
     return [Send("check_claim", {"claim": c, "own_domain": state["source"]["domain"]}) for c in state["claims"]]
 
 
+def same_event(claim, evidence):
+    lines = "\n".join(f"[{i}] {e['text']}" for i, e in enumerate(evidence))
+    out = ask(
+        f"Claim: {claim}\n\nEvidence snippets:\n{lines}\n\n"
+        "Return the ids of the snippets that are about the same person and the same event as the claim. "
+        "A snippet that only shares a name but describes a different person or event is not relevant. "
+        "Relevance is not agreement: a snippet that contradicts the claim about the same event IS relevant.",
+        Relevant)
+    return [evidence[i] for i in out.ids if i < len(evidence)]
+
+
 def check_claim(state):
     claim = state["claim"]["text"]
     evidence = []
-    for hit in tavily.search(claim, max_results=10)["results"]:
+    hits = (tavily.search(claim, max_results=5, include_domains=FACTCHECK_SITES)["results"]  # önce fact-check siteleri
+            + tavily.search(claim, max_results=10)["results"])
+    for hit in hits:
         src = lookup(hit["url"])
         if state["own_domain"] not in domain(hit["url"]) and src["label"] not in BAD_SOURCES:
             evidence.append({"url": hit["url"], "source": src["label"], "text": f"{hit['title']}. {hit['content']}"})
-    evidence = evidence[:5]
+    evidence = same_event(claim, evidence)[:5]
 
+    if not evidence:  # boş kanıtta model "Refuted"a kayıyor (eğitimdeki çoğunluk sınıfı)
+        return {"results": [{**state["claim"], "verdict": "Not Enough Evidence", "confidence": 1.0,
+                             "decided_by": "none", "reason": "Aynı olayla ilgili kanıt bulunamadı.", "evidence": []}]}
     verdict, confidence = judge(claim, " ".join(e["text"] for e in evidence))
     decided_by, reason = "nli", ""
     if confidence < THRESHOLD:
