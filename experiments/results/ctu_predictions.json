@@ -1,0 +1,3002 @@
+[
+ {
+  "i": 0,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 1,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9986
+ },
+ {
+  "i": 2,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9842
+ },
+ {
+  "i": 3,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9928
+ },
+ {
+  "i": 4,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.5961
+ },
+ {
+  "i": 5,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.5898
+ },
+ {
+  "i": 6,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9934
+ },
+ {
+  "i": 7,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9917
+ },
+ {
+  "i": 8,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9854
+ },
+ {
+  "i": 9,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.8369
+ },
+ {
+  "i": 10,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Supported",
+  "conf": 0.4049
+ },
+ {
+  "i": 11,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.9167
+ },
+ {
+  "i": 12,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9975
+ },
+ {
+  "i": 13,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9916
+ },
+ {
+  "i": 14,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9968
+ },
+ {
+  "i": 15,
+  "gold": "Not Enough Evidence",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.7999
+ },
+ {
+  "i": 16,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9763
+ },
+ {
+  "i": 17,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.6308
+ },
+ {
+  "i": 18,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.5567
+ },
+ {
+  "i": 19,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.5968
+ },
+ {
+  "i": 20,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 21,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9957
+ },
+ {
+  "i": 22,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9976
+ },
+ {
+  "i": 23,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9979
+ },
+ {
+  "i": 24,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9917
+ },
+ {
+  "i": 25,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.991
+ },
+ {
+  "i": 26,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.9887
+ },
+ {
+  "i": 27,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9978
+ },
+ {
+  "i": 28,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 29,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9973
+ },
+ {
+  "i": 30,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 31,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9968
+ },
+ {
+  "i": 32,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9972
+ },
+ {
+  "i": 33,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8385
+ },
+ {
+  "i": 34,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9943
+ },
+ {
+  "i": 35,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 36,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.997
+ },
+ {
+  "i": 37,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9717
+ },
+ {
+  "i": 38,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 39,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9974
+ },
+ {
+  "i": 40,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8804
+ },
+ {
+  "i": 41,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.7121
+ },
+ {
+  "i": 42,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9669
+ },
+ {
+  "i": 43,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8804
+ },
+ {
+  "i": 44,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9976
+ },
+ {
+  "i": 45,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9967
+ },
+ {
+  "i": 46,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9884
+ },
+ {
+  "i": 47,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9313
+ },
+ {
+  "i": 48,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9973
+ },
+ {
+  "i": 49,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.5258
+ },
+ {
+  "i": 50,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9521
+ },
+ {
+  "i": 51,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 52,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9973
+ },
+ {
+  "i": 53,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.993
+ },
+ {
+  "i": 54,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9779
+ },
+ {
+  "i": 55,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9977
+ },
+ {
+  "i": 56,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "conf": 0.4899
+ },
+ {
+  "i": 57,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9969
+ },
+ {
+  "i": 58,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8786
+ },
+ {
+  "i": 59,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9894
+ },
+ {
+  "i": 60,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9511
+ },
+ {
+  "i": 61,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 62,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9975
+ },
+ {
+  "i": 63,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9963
+ },
+ {
+  "i": 64,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 65,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9736
+ },
+ {
+  "i": 66,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9034
+ },
+ {
+  "i": 67,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.996
+ },
+ {
+  "i": 68,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.7279
+ },
+ {
+  "i": 69,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9972
+ },
+ {
+  "i": 70,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9264
+ },
+ {
+  "i": 71,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8782
+ },
+ {
+  "i": 72,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9977
+ },
+ {
+  "i": 73,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Supported",
+  "conf": 0.6935
+ },
+ {
+  "i": 74,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9977
+ },
+ {
+  "i": 75,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9597
+ },
+ {
+  "i": 76,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.9977
+ },
+ {
+  "i": 77,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9948
+ },
+ {
+  "i": 78,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9977
+ },
+ {
+  "i": 79,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9967
+ },
+ {
+  "i": 80,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9966
+ },
+ {
+  "i": 81,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 82,
+  "gold": "Not Enough Evidence",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9275
+ },
+ {
+  "i": 83,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 84,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8557
+ },
+ {
+  "i": 85,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.887
+ },
+ {
+  "i": 86,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 87,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9963
+ },
+ {
+  "i": 88,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 89,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 90,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9978
+ },
+ {
+  "i": 91,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9933
+ },
+ {
+  "i": 92,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.6251
+ },
+ {
+  "i": 93,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9968
+ },
+ {
+  "i": 94,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 95,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9387
+ },
+ {
+  "i": 96,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 97,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.589
+ },
+ {
+  "i": 98,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9921
+ },
+ {
+  "i": 99,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "conf": 0.9828
+ },
+ {
+  "i": 100,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9437
+ },
+ {
+  "i": 101,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.9742
+ },
+ {
+  "i": 102,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 103,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9623
+ },
+ {
+  "i": 104,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.994
+ },
+ {
+  "i": 105,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9971
+ },
+ {
+  "i": 106,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8257
+ },
+ {
+  "i": 107,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 108,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9987
+ },
+ {
+  "i": 109,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 110,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9745
+ },
+ {
+  "i": 111,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9598
+ },
+ {
+  "i": 112,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9278
+ },
+ {
+  "i": 113,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9961
+ },
+ {
+  "i": 114,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.6806
+ },
+ {
+  "i": 115,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.5332
+ },
+ {
+  "i": 116,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "conf": 0.9078
+ },
+ {
+  "i": 117,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.6265
+ },
+ {
+  "i": 118,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9844
+ },
+ {
+  "i": 119,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 120,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 121,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9947
+ },
+ {
+  "i": 122,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 123,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9946
+ },
+ {
+  "i": 124,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9986
+ },
+ {
+  "i": 125,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.997
+ },
+ {
+  "i": 126,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9215
+ },
+ {
+  "i": 127,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9971
+ },
+ {
+  "i": 128,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 129,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9613
+ },
+ {
+  "i": 130,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9943
+ },
+ {
+  "i": 131,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.7058
+ },
+ {
+  "i": 132,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 133,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9793
+ },
+ {
+  "i": 134,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9974
+ },
+ {
+  "i": 135,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9885
+ },
+ {
+  "i": 136,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9933
+ },
+ {
+  "i": 137,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.5299
+ },
+ {
+  "i": 138,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.997
+ },
+ {
+  "i": 139,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.976
+ },
+ {
+  "i": 140,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9927
+ },
+ {
+  "i": 141,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9965
+ },
+ {
+  "i": 142,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.8793
+ },
+ {
+  "i": 143,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Supported",
+  "conf": 0.9969
+ },
+ {
+  "i": 144,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9953
+ },
+ {
+  "i": 145,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8638
+ },
+ {
+  "i": 146,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.8648
+ },
+ {
+  "i": 147,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9971
+ },
+ {
+  "i": 148,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.6845
+ },
+ {
+  "i": 149,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8324
+ },
+ {
+  "i": 150,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9495
+ },
+ {
+  "i": 151,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9964
+ },
+ {
+  "i": 152,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9972
+ },
+ {
+  "i": 153,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.9916
+ },
+ {
+  "i": 154,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9975
+ },
+ {
+  "i": 155,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9953
+ },
+ {
+  "i": 156,
+  "gold": "Supported",
+  "pred": "Refuted",
+  "conf": 0.9696
+ },
+ {
+  "i": 157,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8462
+ },
+ {
+  "i": 158,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9414
+ },
+ {
+  "i": 159,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9929
+ },
+ {
+  "i": 160,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.8525
+ },
+ {
+  "i": 161,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9857
+ },
+ {
+  "i": 162,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9667
+ },
+ {
+  "i": 163,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9913
+ },
+ {
+  "i": 164,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 165,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 166,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9959
+ },
+ {
+  "i": 167,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9962
+ },
+ {
+  "i": 168,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9973
+ },
+ {
+  "i": 169,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 170,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.995
+ },
+ {
+  "i": 171,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 172,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9971
+ },
+ {
+  "i": 173,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9973
+ },
+ {
+  "i": 174,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 175,
+  "gold": "Supported",
+  "pred": "Refuted",
+  "conf": 0.9972
+ },
+ {
+  "i": 176,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.5201
+ },
+ {
+  "i": 177,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.997
+ },
+ {
+  "i": 178,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 179,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8932
+ },
+ {
+  "i": 180,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 181,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9961
+ },
+ {
+  "i": 182,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9971
+ },
+ {
+  "i": 183,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9919
+ },
+ {
+  "i": 184,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9891
+ },
+ {
+  "i": 185,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9971
+ },
+ {
+  "i": 186,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.983
+ },
+ {
+  "i": 187,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 188,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9972
+ },
+ {
+  "i": 189,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 190,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 191,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9972
+ },
+ {
+  "i": 192,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.6213
+ },
+ {
+  "i": 193,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9976
+ },
+ {
+  "i": 194,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9968
+ },
+ {
+  "i": 195,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9934
+ },
+ {
+  "i": 196,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9966
+ },
+ {
+  "i": 197,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8192
+ },
+ {
+  "i": 198,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9941
+ },
+ {
+  "i": 199,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.994
+ },
+ {
+  "i": 200,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9945
+ },
+ {
+  "i": 201,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9967
+ },
+ {
+  "i": 202,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9968
+ },
+ {
+  "i": 203,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9854
+ },
+ {
+  "i": 204,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9903
+ },
+ {
+  "i": 205,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9962
+ },
+ {
+  "i": 206,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9862
+ },
+ {
+  "i": 207,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9964
+ },
+ {
+  "i": 208,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.928
+ },
+ {
+  "i": 209,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9471
+ },
+ {
+  "i": 210,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9894
+ },
+ {
+  "i": 211,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9972
+ },
+ {
+  "i": 212,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9964
+ },
+ {
+  "i": 213,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9956
+ },
+ {
+  "i": 214,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9965
+ },
+ {
+  "i": 215,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9972
+ },
+ {
+  "i": 216,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9965
+ },
+ {
+  "i": 217,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9926
+ },
+ {
+  "i": 218,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9948
+ },
+ {
+  "i": 219,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9955
+ },
+ {
+  "i": 220,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9765
+ },
+ {
+  "i": 221,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9961
+ },
+ {
+  "i": 222,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9838
+ },
+ {
+  "i": 223,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9903
+ },
+ {
+  "i": 224,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9955
+ },
+ {
+  "i": 225,
+  "gold": "Not Enough Evidence",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.6998
+ },
+ {
+  "i": 226,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.6576
+ },
+ {
+  "i": 227,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.908
+ },
+ {
+  "i": 228,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9954
+ },
+ {
+  "i": 229,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9909
+ },
+ {
+  "i": 230,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.997
+ },
+ {
+  "i": 231,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.995
+ },
+ {
+  "i": 232,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 233,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.9909
+ },
+ {
+  "i": 234,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 235,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9303
+ },
+ {
+  "i": 236,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9927
+ },
+ {
+  "i": 237,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.9963
+ },
+ {
+  "i": 238,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "conf": 0.7959
+ },
+ {
+  "i": 239,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.7953
+ },
+ {
+  "i": 240,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9978
+ },
+ {
+  "i": 241,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9875
+ },
+ {
+  "i": 242,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9978
+ },
+ {
+  "i": 243,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9059
+ },
+ {
+  "i": 244,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9978
+ },
+ {
+  "i": 245,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9859
+ },
+ {
+  "i": 246,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9955
+ },
+ {
+  "i": 247,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.991
+ },
+ {
+  "i": 248,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9932
+ },
+ {
+  "i": 249,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9986
+ },
+ {
+  "i": 250,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 251,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.6956
+ },
+ {
+  "i": 252,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9242
+ },
+ {
+  "i": 253,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9979
+ },
+ {
+  "i": 254,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 255,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9946
+ },
+ {
+  "i": 256,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 257,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9934
+ },
+ {
+  "i": 258,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9899
+ },
+ {
+  "i": 259,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8696
+ },
+ {
+  "i": 260,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "conf": 0.8269
+ },
+ {
+  "i": 261,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 262,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9789
+ },
+ {
+  "i": 263,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9856
+ },
+ {
+  "i": 264,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9581
+ },
+ {
+  "i": 265,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9881
+ },
+ {
+  "i": 266,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 267,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9878
+ },
+ {
+  "i": 268,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9963
+ },
+ {
+  "i": 269,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.7427
+ },
+ {
+  "i": 270,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 271,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 272,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9945
+ },
+ {
+  "i": 273,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9964
+ },
+ {
+  "i": 274,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 275,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9943
+ },
+ {
+  "i": 276,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9746
+ },
+ {
+  "i": 277,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 278,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 279,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 280,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.997
+ },
+ {
+  "i": 281,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.7634
+ },
+ {
+  "i": 282,
+  "gold": "Not Enough Evidence",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.4959
+ },
+ {
+  "i": 283,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9573
+ },
+ {
+  "i": 284,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8708
+ },
+ {
+  "i": 285,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9968
+ },
+ {
+  "i": 286,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9962
+ },
+ {
+  "i": 287,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9975
+ },
+ {
+  "i": 288,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.777
+ },
+ {
+  "i": 289,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9471
+ },
+ {
+  "i": 290,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9931
+ },
+ {
+  "i": 291,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 292,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9209
+ },
+ {
+  "i": 293,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9807
+ },
+ {
+  "i": 294,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8743
+ },
+ {
+  "i": 295,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9978
+ },
+ {
+  "i": 296,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 297,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9941
+ },
+ {
+  "i": 298,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.7837
+ },
+ {
+  "i": 299,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9933
+ },
+ {
+  "i": 300,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9979
+ },
+ {
+  "i": 301,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.994
+ },
+ {
+  "i": 302,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9975
+ },
+ {
+  "i": 303,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Supported",
+  "conf": 0.9203
+ },
+ {
+  "i": 304,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 305,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.992
+ },
+ {
+  "i": 306,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.9976
+ },
+ {
+  "i": 307,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9901
+ },
+ {
+  "i": 308,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9943
+ },
+ {
+  "i": 309,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9964
+ },
+ {
+  "i": 310,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.5264
+ },
+ {
+  "i": 311,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 312,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9974
+ },
+ {
+  "i": 313,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9961
+ },
+ {
+  "i": 314,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9931
+ },
+ {
+  "i": 315,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.7307
+ },
+ {
+  "i": 316,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9931
+ },
+ {
+  "i": 317,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9929
+ },
+ {
+  "i": 318,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9512
+ },
+ {
+  "i": 319,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9963
+ },
+ {
+  "i": 320,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8078
+ },
+ {
+  "i": 321,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9965
+ },
+ {
+  "i": 322,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9749
+ },
+ {
+  "i": 323,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8293
+ },
+ {
+  "i": 324,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Not Enough Evidence",
+  "conf": 0.7812
+ },
+ {
+  "i": 325,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8939
+ },
+ {
+  "i": 326,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9974
+ },
+ {
+  "i": 327,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9965
+ },
+ {
+  "i": 328,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.6273
+ },
+ {
+  "i": 329,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9974
+ },
+ {
+  "i": 330,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9433
+ },
+ {
+  "i": 331,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 332,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9968
+ },
+ {
+  "i": 333,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 334,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 335,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9631
+ },
+ {
+  "i": 336,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9979
+ },
+ {
+  "i": 337,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8009
+ },
+ {
+  "i": 338,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 339,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 340,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9496
+ },
+ {
+  "i": 341,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9976
+ },
+ {
+  "i": 342,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9889
+ },
+ {
+  "i": 343,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9979
+ },
+ {
+  "i": 344,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 345,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8488
+ },
+ {
+  "i": 346,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.909
+ },
+ {
+  "i": 347,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9758
+ },
+ {
+  "i": 348,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9972
+ },
+ {
+  "i": 349,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 350,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Supported",
+  "conf": 0.9847
+ },
+ {
+  "i": 351,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 352,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9316
+ },
+ {
+  "i": 353,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9172
+ },
+ {
+  "i": 354,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9874
+ },
+ {
+  "i": 355,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9956
+ },
+ {
+  "i": 356,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 357,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9968
+ },
+ {
+  "i": 358,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 359,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9785
+ },
+ {
+  "i": 360,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.5198
+ },
+ {
+  "i": 361,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9955
+ },
+ {
+  "i": 362,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9978
+ },
+ {
+  "i": 363,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 364,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9977
+ },
+ {
+  "i": 365,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 366,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9562
+ },
+ {
+  "i": 367,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "conf": 0.9954
+ },
+ {
+  "i": 368,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9968
+ },
+ {
+  "i": 369,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9945
+ },
+ {
+  "i": 370,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8679
+ },
+ {
+  "i": 371,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "conf": 0.982
+ },
+ {
+  "i": 372,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9979
+ },
+ {
+  "i": 373,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9519
+ },
+ {
+  "i": 374,
+  "gold": "Supported",
+  "pred": "Refuted",
+  "conf": 0.8188
+ },
+ {
+  "i": 375,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9132
+ },
+ {
+  "i": 376,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9822
+ },
+ {
+  "i": 377,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 378,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9967
+ },
+ {
+  "i": 379,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9971
+ },
+ {
+  "i": 380,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9952
+ },
+ {
+  "i": 381,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9209
+ },
+ {
+  "i": 382,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 383,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 384,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.8955
+ },
+ {
+  "i": 385,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "conf": 0.7649
+ },
+ {
+  "i": 386,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9971
+ },
+ {
+  "i": 387,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9963
+ },
+ {
+  "i": 388,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 389,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.4961
+ },
+ {
+  "i": 390,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9973
+ },
+ {
+  "i": 391,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.8515
+ },
+ {
+  "i": 392,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9915
+ },
+ {
+  "i": 393,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9957
+ },
+ {
+  "i": 394,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9901
+ },
+ {
+  "i": 395,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 396,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9239
+ },
+ {
+  "i": 397,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.995
+ },
+ {
+  "i": 398,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9971
+ },
+ {
+  "i": 399,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9977
+ },
+ {
+  "i": 400,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 401,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.98
+ },
+ {
+  "i": 402,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.7432
+ },
+ {
+  "i": 403,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 404,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.9973
+ },
+ {
+  "i": 405,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9986
+ },
+ {
+  "i": 406,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9936
+ },
+ {
+  "i": 407,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 408,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9889
+ },
+ {
+  "i": 409,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9986
+ },
+ {
+  "i": 410,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9423
+ },
+ {
+  "i": 411,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 412,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 413,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.8307
+ },
+ {
+  "i": 414,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8615
+ },
+ {
+  "i": 415,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 416,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.5099
+ },
+ {
+  "i": 417,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 418,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.8997
+ },
+ {
+  "i": 419,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9878
+ },
+ {
+  "i": 420,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9964
+ },
+ {
+  "i": 421,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 422,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.997
+ },
+ {
+  "i": 423,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8947
+ },
+ {
+  "i": 424,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9964
+ },
+ {
+  "i": 425,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9977
+ },
+ {
+  "i": 426,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9976
+ },
+ {
+  "i": 427,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.9954
+ },
+ {
+  "i": 428,
+  "gold": "Not Enough Evidence",
+  "pred": "Supported",
+  "conf": 0.9684
+ },
+ {
+  "i": 429,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9757
+ },
+ {
+  "i": 430,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9957
+ },
+ {
+  "i": 431,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 432,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9957
+ },
+ {
+  "i": 433,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 434,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9974
+ },
+ {
+  "i": 435,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.9936
+ },
+ {
+  "i": 436,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9966
+ },
+ {
+  "i": 437,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9505
+ },
+ {
+  "i": 438,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.4858
+ },
+ {
+  "i": 439,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9865
+ },
+ {
+  "i": 440,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9603
+ },
+ {
+  "i": 441,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 442,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 443,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9896
+ },
+ {
+  "i": 444,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9966
+ },
+ {
+  "i": 445,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9925
+ },
+ {
+  "i": 446,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.5237
+ },
+ {
+  "i": 447,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.7645
+ },
+ {
+  "i": 448,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Supported",
+  "conf": 0.8512
+ },
+ {
+  "i": 449,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.5665
+ },
+ {
+  "i": 450,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9971
+ },
+ {
+  "i": 451,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9932
+ },
+ {
+  "i": 452,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 453,
+  "gold": "Supported",
+  "pred": "Not Enough Evidence",
+  "conf": 0.7234
+ },
+ {
+  "i": 454,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.9797
+ },
+ {
+  "i": 455,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9969
+ },
+ {
+  "i": 456,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9984
+ },
+ {
+  "i": 457,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9074
+ },
+ {
+  "i": 458,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.8064
+ },
+ {
+  "i": 459,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9947
+ },
+ {
+  "i": 460,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9958
+ },
+ {
+  "i": 461,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9967
+ },
+ {
+  "i": 462,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9971
+ },
+ {
+  "i": 463,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9971
+ },
+ {
+  "i": 464,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9823
+ },
+ {
+  "i": 465,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 466,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9981
+ },
+ {
+  "i": 467,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9985
+ },
+ {
+  "i": 468,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9269
+ },
+ {
+  "i": 469,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9957
+ },
+ {
+  "i": 470,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9865
+ },
+ {
+  "i": 471,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9982
+ },
+ {
+  "i": 472,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9953
+ },
+ {
+  "i": 473,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9843
+ },
+ {
+  "i": 474,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9972
+ },
+ {
+  "i": 475,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.6299
+ },
+ {
+  "i": 476,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9983
+ },
+ {
+  "i": 477,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9967
+ },
+ {
+  "i": 478,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8782
+ },
+ {
+  "i": 479,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8069
+ },
+ {
+  "i": 480,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.9513
+ },
+ {
+  "i": 481,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9973
+ },
+ {
+  "i": 482,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8953
+ },
+ {
+  "i": 483,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "conf": 0.9862
+ },
+ {
+  "i": 484,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9278
+ },
+ {
+  "i": 485,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.995
+ },
+ {
+  "i": 486,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9892
+ },
+ {
+  "i": 487,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.998
+ },
+ {
+  "i": 488,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "conf": 0.5886
+ },
+ {
+  "i": 489,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.6892
+ },
+ {
+  "i": 490,
+  "gold": "Supported",
+  "pred": "Supported",
+  "conf": 0.9952
+ },
+ {
+  "i": 491,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9687
+ },
+ {
+  "i": 492,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9963
+ },
+ {
+  "i": 493,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "conf": 0.4774
+ },
+ {
+  "i": 494,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.8171
+ },
+ {
+  "i": 495,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.7645
+ },
+ {
+  "i": 496,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "conf": 0.9944
+ },
+ {
+  "i": 497,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "conf": 0.6384
+ },
+ {
+  "i": 498,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "conf": 0.9193
+ },
+ {
+  "i": 499,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "conf": 0.9947
+ }
+]

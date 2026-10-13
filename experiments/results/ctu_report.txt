@@ -1,0 +1,32 @@
+model: ctu-aic/deberta-v3-large-AVeriTeC-nli
+input order: claim_first
+label mapping (from 150 train claims): ('Refuted', 'Supported', 'Not Enough Evidence', 'Conflicting Evidence/Cherrypicking')
+dev claims: 500, majority class 'Refuted' = 61.0%
+
+threshold | kept by model | accuracy on kept | sent to LLM
+      0.0 |  500 (100%) | 80.2% | 0
+      0.5 |  494 (99%) | 80.8% | 6
+      0.7 |  465 (93%) | 84.1% | 35
+      0.8 |  448 (90%) | 85.9% | 52
+      0.9 |  408 (82%) | 90.0% | 92
+     0.95 |  374 (75%) | 92.8% | 126
+
+macro F1 (all dev): 0.680
+
+confusion (gold -> pred):
+  Conflicting Evidence/Cherrypicking   -> Conflicting Evidence/Cherrypicking   21
+  Conflicting Evidence/Cherrypicking   -> Not Enough Evidence                  1
+  Conflicting Evidence/Cherrypicking   -> Refuted                              10
+  Conflicting Evidence/Cherrypicking   -> Supported                            6
+  Not Enough Evidence                  -> Conflicting Evidence/Cherrypicking   4
+  Not Enough Evidence                  -> Not Enough Evidence                  20
+  Not Enough Evidence                  -> Refuted                              10
+  Not Enough Evidence                  -> Supported                            1
+  Refuted                              -> Conflicting Evidence/Cherrypicking   29
+  Refuted                              -> Not Enough Evidence                  11
+  Refuted                              -> Refuted                              256
+  Refuted                              -> Supported                            9
+  Supported                            -> Conflicting Evidence/Cherrypicking   14
+  Supported                            -> Not Enough Evidence                  1
+  Supported                            -> Refuted                              3
+  Supported                            -> Supported                            104

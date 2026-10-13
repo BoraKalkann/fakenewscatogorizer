@@ -8,6 +8,7 @@ load_dotenv(override=True)
 
 import json
 import operator
+import re
 import sys
 from typing import Annotated, Literal, TypedDict
 
@@ -30,6 +31,9 @@ BAD_SOURCES = {"deprecated", "blacklisted"}
 FACTCHECK_SITES = ["snopes.com", "politifact.com", "factcheck.org", "fullfact.org", "factcheck.afp.com",
                    "leadstories.com", "africacheck.org", "checkyourfact.com", "boomlive.in", "altnews.in"]
 USER_AGENT = "fakenewscatogorizer/0.1"  # tarayıcı kimliğini web.archive.org 429 ile reddediyor
+POINTS = {"Supported": 1, "Refuted": -1, "Conflicting Evidence/Cherrypicking": -0.5, "Not Enough Evidence": 0}
+RATING_KINDS = {"misattributed": "Sahte alıntı", "satire": "Hiciv", "fabricated": "Uydurma", "fake": "Uydurma",
+                "miscaptioned": "Yanıltıcı", "missing context": "Yanıltıcı", "outdated": "Yanıltıcı"}
 
 
 class Claim(BaseModel):
@@ -50,6 +54,11 @@ class Relevant(BaseModel):
     ids: list[int]
 
 
+class Kind(BaseModel):
+    kind: Literal["Uydurma", "Çarpıtma", "Yanıltıcı", "Sahte alıntı", "Bilim dışı"]
+    reason: str
+
+
 def ask(prompt, schema):
     config = {"response_mime_type": "application/json", "response_schema": schema}
     return client.models.generate_content(model=MODEL, contents=prompt, config=config).parsed
@@ -63,6 +72,9 @@ class State(TypedDict):
     claims: list[dict]
     results: Annotated[list[dict], operator.add]
     verdict: str
+    score: float
+    kind: str
+    kind_reason: str
 
 
 def fetch_article(state):
@@ -100,6 +112,8 @@ def fan_out(state):
 
 
 def same_event(claim, evidence):
+    if not evidence:  # arama boş döndüyse LLM'e sormaya gerek yok
+        return []
     lines = "\n".join(f"[{i}] {e['text']}" for i, e in enumerate(evidence))
     out = ask(
         f"Claim: {claim}\n\nEvidence snippets:\n{lines}\n\n"
@@ -108,6 +122,38 @@ def same_event(claim, evidence):
         "Relevance is not agreement: a snippet that contradicts the claim about the same event IS relevant.",
         Relevant)
     return [evidence[i] for i in out.ids if i < len(evidence)]
+
+
+def is_factcheck(url):
+    return any(site in domain(url) for site in FACTCHECK_SITES)
+
+
+def factcheck_rating(url):
+    """Fact-check sayfasındaki ClaimReview etiketi → (incelenen iddia, karar), ör. Snopes: (..., "False")."""
+    try:
+        html = requests.get(url, timeout=10, headers={"User-Agent": USER_AGENT}).text
+    except requests.RequestException:
+        return None
+    for block in re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', html, re.S):
+        try:
+            data = json.loads(block)
+        except json.JSONDecodeError:
+            continue
+        for item in data if isinstance(data, list) else data.get("@graph", [data]):
+            if isinstance(item, dict) and item.get("@type") == "ClaimReview":
+                return item.get("claimReviewed", ""), item.get("reviewRating", {}).get("alternateName", "")
+    return None
+
+
+def rating_to_verdict(rating):
+    r = rating.lower()
+    if any(w in r for w in ("mixture", "half", "mixed", "missing context", "misleading", "partly", "cherry")):
+        return "Conflicting Evidence/Cherrypicking"
+    if any(w in r for w in ("false", "fake", "pants on fire", "incorrect", "no such", "not true", "fabricated", "hoax")):
+        return "Refuted"  # "not true" "true"dan önce kontrol edilmeli
+    if any(w in r for w in ("true", "correct", "accurate")):
+        return "Supported"
+    return None  # "unproven" vb. → karar modeline bırak
 
 
 def check_claim(state):
@@ -120,6 +166,18 @@ def check_claim(state):
         if state["own_domain"] not in domain(hit["url"]) and src["label"] not in BAD_SOURCES:
             evidence.append({"url": hit["url"], "source": src["label"], "text": f"{hit['title']}. {hit['content']}"})
     evidence = same_event(claim, evidence)[:5]
+
+    for e in evidence:  # aynı iddiayı inceleyen bir fact-check varsa karar onun etiketinden gelir
+        review = is_factcheck(e["url"]) and factcheck_rating(e["url"])
+        if not review:
+            continue
+        reviewed, rating = review
+        same_claim, conf = judge(claim, reviewed)  # fact-check'in incelediği iddia bizimkini söylüyor mu?
+        verdict = rating_to_verdict(rating)
+        if same_claim == "Supported" and conf >= THRESHOLD and verdict:
+            return {"results": [{**state["claim"], "verdict": verdict, "confidence": 1.0, "decided_by": "factcheck",
+                                 "reason": f"{e['url']}: {rating}", "evidence": [e]}]}
+    evidence = [e for e in evidence if not is_factcheck(e["url"])]  # fact-check özetleri yalanı alıntılıyor
 
     if not evidence:  # boş kanıtta model "Refuted"a kayıyor (eğitimdeki çoğunluk sınıfı)
         return {"results": [{**state["claim"], "verdict": "Not Enough Evidence", "confidence": 1.0,
@@ -140,20 +198,54 @@ def check_claim(state):
 
 def report(state):
     source = state["source"]["label"]
-    verdicts = [r["verdict"] for r in state.get("results", [])]
+    results = state.get("results", [])
     if source == "satire":
-        verdict = "Hiciv"
-    elif "Refuted" in verdicts:
+        return {"verdict": "Hiciv", "score": 0.0}
+
+    # Skor = iddia puanlarının ortalaması: puan × ağırlık (fact-check 2 kat) × güven.
+    # LLM kararlarında güven 1 alınır; "confidence" alanı LLM'in değil, modelin (düşük) güveni.
+    score = sum(POINTS[r["verdict"]] * (2 if r["decided_by"] == "factcheck" else 1)
+                * (1.0 if r["decided_by"] == "llm" else r["confidence"]) for r in results) / max(len(results), 1)
+
+    if score <= -0.2:
         verdict = "Yanlış"
-    elif "Conflicting Evidence/Cherrypicking" in verdicts:
-        verdict = "Yanıltıcı"
-    elif verdicts.count("Not Enough Evidence") > len(verdicts) / 2:
-        verdict = "Doğrulanamadı" if source == "generally_reliable" else "Şüpheli"
+    elif score < 0.2:
+        if any(r["verdict"] == "Conflicting Evidence/Cherrypicking" for r in results):
+            verdict = "Yanıltıcı"
+        else:
+            verdict = "Doğrulanamadı" if source == "generally_reliable" else "Şüpheli"
     elif source in BAD_SOURCES:
         verdict = "Olgular doğru, kaynak güvenilmez"
     else:
         verdict = "Güvenilir"
-    return {"verdict": verdict}
+    return {"verdict": verdict, "score": round(score, 2)}
+
+
+def classify(state):
+    if state["verdict"] == "Hiciv":
+        return {"kind": "Hiciv", "kind_reason": "Kaynak hiciv sitesi."}
+    if state["verdict"] not in ("Yanlış", "Yanıltıcı", "Şüpheli"):
+        return {"kind": "", "kind_reason": ""}
+    bad = [r for r in state["results"] if r["verdict"] != "Supported"]
+
+    for r in bad:  # fact-check etiketi türü söylüyorsa (ör. Snopes "Misattributed") LLM'e gerek yok
+        if r["decided_by"] == "factcheck":
+            rating = r["reason"].rsplit(": ", 1)[-1].lower()
+            for word, kind in RATING_KINDS.items():
+                if word in rating:
+                    return {"kind": kind, "kind_reason": r["reason"]}
+
+    lines = "\n".join(
+        f"- [{r['verdict']}] {r['text']}\n  reason: {r['reason']}\n  evidence: "
+        + " | ".join(e["text"][:300] for e in r["evidence"][:2]) for r in bad)
+    out = ask(
+        f"A news article from a source rated '{state['source']['label']}' was judged '{state['verdict']}'. "
+        f"Problematic claims with their evidence:\n{lines}\n\n"
+        "Classify the type of misinformation: Uydurma (the event never happened), "
+        "Çarpıtma (a real event with changed numbers or details), Yanıltıcı (true facts with missing context "
+        "or cherry-picked), Sahte alıntı (fabricated or misattributed quote), "
+        "Bilim dışı (unfounded health or science claim). Give a one-sentence reason in Turkish.", Kind)
+    return {"kind": out.kind, "kind_reason": out.reason}
 
 
 g = StateGraph(State)
@@ -162,12 +254,14 @@ g.add_node(source_check)
 g.add_node(extract_claims)
 g.add_node(check_claim)
 g.add_node(report)
+g.add_node(classify)
 g.add_edge(START, "fetch_article")
 g.add_edge("fetch_article", "source_check")
 g.add_conditional_edges("source_check", after_source, ["extract_claims", "report"])
 g.add_conditional_edges("extract_claims", fan_out, ["check_claim"])
 g.add_edge("check_claim", "report")
-g.add_edge("report", END)
+g.add_edge("report", "classify")
+g.add_edge("classify", END)
 app = g.compile()
 
 if __name__ == "__main__":
@@ -175,4 +269,6 @@ if __name__ == "__main__":
     print(out["title"], "|", out["source"])
     for r in out.get("results", []):
         print(f"{r['verdict']:36} {r['confidence']:.2f} {r['decided_by']:3} | {r['text']}")
-    print("HABER:", out["verdict"])
+    print(f"HABER: {out['verdict']} (skor {out['score']:+.2f})")
+    if out["kind"]:
+        print("TÜR:", out["kind"], "-", out["kind_reason"])
