@@ -1,0 +1,13 @@
+mode: own  claims: 30
+accuracy: 60.0%   macro F1: 0.439
+majority baseline (Refuted): 60.0%
+per label F1: Refuted 0.69, Supported 0.67, Not Enough E 0.40, Conflicting  0.00
+decided by:
+  llm         8  correct 6/8
+  nli        19  correct 11/19
+  none        3  correct 1/3
+confusion (gold -> pred):
+  Refuted      Refuted 11, Supported 4, Conflicting  3
+  Supported    Supported 6, Refuted 1, Not Enough E 1
+  Not Enough E Refuted 1, Not Enough E 1
+  Conflicting  Refuted 1, Not Enough E 1

@@ -1,0 +1,272 @@
+[
+ {
+  "id": 30,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 66,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "llm",
+  "conf": 0.58,
+  "n_evidence": 2,
+  "reason": "Evidence confirms that Hunter Biden served as the Board Chair of World Food Program USA, a non-profit organization that supports the work of the UN World Food Programme."
+ },
+ {
+  "id": 68,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 79,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "by": "nli",
+  "conf": 0.95,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 98,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "llm",
+  "conf": 0.89,
+  "n_evidence": 5,
+  "reason": "Multiple reliable sources, including Apple's own product information, confirm that the iPhone 12 series is sold without a power adapter or wired earphones in the box."
+ },
+ {
+  "id": 114,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "by": "nli",
+  "conf": 0.94,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 163,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "llm",
+  "conf": 0.88,
+  "n_evidence": 4,
+  "reason": "Multiple credible news reports confirm that Facebook removed the Radio-Québec page and Alexis Cossette-Trudel's personal account in October 2020 as part of its policy against QAnon content."
+ },
+ {
+  "id": 179,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "by": "llm",
+  "conf": 0.9,
+  "n_evidence": 3,
+  "reason": "While news reports confirm that Sotto did indeed make the claim, fact-checkers have categorized the assertion as baseless due to survey data indicating that the majority of Filipinos follow safety protocols."
+ },
+ {
+  "id": 233,
+  "gold": "Not Enough Evidence",
+  "pred": "Not Enough Evidence",
+  "by": "none",
+  "conf": 1.0,
+  "n_evidence": 0,
+  "reason": "Kanıt bulunamadı."
+ },
+ {
+  "id": 238,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "by": "nli",
+  "conf": 0.98,
+  "n_evidence": 3,
+  "reason": ""
+ },
+ {
+  "id": 243,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 1,
+  "reason": ""
+ },
+ {
+  "id": 256,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 2,
+  "reason": ""
+ },
+ {
+  "id": 272,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "by": "nli",
+  "conf": 0.9,
+  "n_evidence": 2,
+  "reason": ""
+ },
+ {
+  "id": 289,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "llm",
+  "conf": 0.89,
+  "n_evidence": 5,
+  "reason": "The World Health Organization and various fact-checking entities have explicitly stated that there is no medical evidence supporting the use of home remedies, supplements, or natural treatments to prevent or cure COVID-19."
+ },
+ {
+  "id": 316,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "by": "llm",
+  "conf": 0.8,
+  "n_evidence": 5,
+  "reason": "Evidence shows that Canada had already opened its border to fully vaccinated travelers from the U.S. in August, indicating a desire to reopen."
+ },
+ {
+  "id": 327,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "nli",
+  "conf": 0.97,
+  "n_evidence": 2,
+  "reason": ""
+ },
+ {
+  "id": 338,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 2,
+  "reason": ""
+ },
+ {
+  "id": 342,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "nli",
+  "conf": 0.95,
+  "n_evidence": 4,
+  "reason": ""
+ },
+ {
+  "id": 355,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "llm",
+  "conf": 0.71,
+  "n_evidence": 3,
+  "reason": "Official reports from the Clackamas County Sheriff's Office and local news sources confirm that while Ignat Shchetinin and Sammy Scott Piatt were arrested for arson, these incidents were unrelated to the Clackamas County wildfires."
+ },
+ {
+  "id": 367,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "llm",
+  "conf": 0.9,
+  "n_evidence": 4,
+  "reason": "The official UPSC documentation indicates that attempt limits are determined by categories such as SC, ST, OBC, EWS, and PwBD, with no mention of religious affiliation as a criterion for additional attempts."
+ },
+ {
+  "id": 391,
+  "gold": "Supported",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 0.99,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 410,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 2,
+  "reason": ""
+ },
+ {
+  "id": 415,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 1,
+  "reason": ""
+ },
+ {
+  "id": 426,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 1,
+  "reason": ""
+ },
+ {
+  "id": 427,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 0.99,
+  "n_evidence": 1,
+  "reason": ""
+ },
+ {
+  "id": 433,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "by": "nli",
+  "conf": 0.97,
+  "n_evidence": 3,
+  "reason": ""
+ },
+ {
+  "id": 445,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 0.99,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 463,
+  "gold": "Supported",
+  "pred": "Not Enough Evidence",
+  "by": "none",
+  "conf": 1.0,
+  "n_evidence": 0,
+  "reason": "Kanıt bulunamadı."
+ },
+ {
+  "id": 480,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Not Enough Evidence",
+  "by": "none",
+  "conf": 1.0,
+  "n_evidence": 0,
+  "reason": "Kanıt bulunamadı."
+ },
+ {
+  "id": 488,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 0.99,
+  "n_evidence": 2,
+  "reason": ""
+ }
+]

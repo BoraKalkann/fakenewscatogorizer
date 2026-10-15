@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
+import time
 from typing import Literal
 
 from google import genai
@@ -24,6 +25,10 @@ class Claims(BaseModel):
     claims: list[Claim]
 
 
+class Questions(BaseModel):
+    questions: list[str]
+
+
 class Relevant(BaseModel):
     ids: list[int]
 
@@ -40,4 +45,12 @@ class Kind(BaseModel):
 
 def ask(prompt, schema):
     config = {"response_mime_type": "application/json", "response_schema": schema}
-    return client.models.generate_content(model=MODEL, contents=prompt, config=config).parsed
+    for attempt in range(3):  # Gemini bazen bağlantıyı koparıyor ya da boş cevap dönüyor
+        try:
+            if (out := client.models.generate_content(model=MODEL, contents=prompt, config=config).parsed):
+                return out
+        except Exception:
+            if attempt == 2:
+                raise
+        time.sleep(3 * (attempt + 1))
+    raise RuntimeError("Gemini 3 denemede geçerli cevap vermedi.")

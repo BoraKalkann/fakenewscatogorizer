@@ -1,0 +1,272 @@
+[
+ {
+  "id": 30,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 66,
+  "gold": "Supported",
+  "pred": "Refuted",
+  "by": "llm",
+  "conf": 0.7,
+  "n_evidence": 1,
+  "reason": "The evidence states that Hunter Biden served on the board of World Food Program USA, a non-profit organization that supports the World Food Programme, rather than being the chairman of the World Food Programme itself."
+ },
+ {
+  "id": 68,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 4,
+  "reason": ""
+ },
+ {
+  "id": 79,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 98,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "nli",
+  "conf": 0.98,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 114,
+  "gold": "Refuted",
+  "pred": "ERROR",
+  "by": "error",
+  "conf": 0,
+  "n_evidence": 0,
+  "reason": "RuntimeError('Gemini 3 denemede geçerli cevap vermedi.')"
+ },
+ {
+  "id": 163,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "nli",
+  "conf": 0.97,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 179,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "by": "llm",
+  "conf": 0.47,
+  "n_evidence": 4,
+  "reason": "Multiple reliable news sources and fact-check reports confirm that Senate President Vicente Sotto III publicly attributed the surge in COVID-19 cases to Filipinos disregarding health protocols."
+ },
+ {
+  "id": 233,
+  "gold": "Not Enough Evidence",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 0.99,
+  "n_evidence": 2,
+  "reason": ""
+ },
+ {
+  "id": 238,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "by": "llm",
+  "conf": 0.84,
+  "n_evidence": 2,
+  "reason": "While the absolute number of police officers increased during Judith Collins' tenure, the ratio of police officers to the total population declined, leading to differing interpretations based on which metric is prioritized."
+ },
+ {
+  "id": 243,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 1,
+  "reason": ""
+ },
+ {
+  "id": 256,
+  "gold": "Refuted",
+  "pred": "Not Enough Evidence",
+  "by": "llm",
+  "conf": 0.59,
+  "n_evidence": 1,
+  "reason": "The provided text does not contain any reports of a child dying in Germany due to wearing a mask."
+ },
+ {
+  "id": 272,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 4,
+  "reason": ""
+ },
+ {
+  "id": 289,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "llm",
+  "conf": 0.89,
+  "n_evidence": 1,
+  "reason": "The evidence explicitly states that the WHO has warned against the use of unproven traditional herbs in the treatment of COVID-19 and emphasizes the health risks of consuming unapproved natural product remedies."
+ },
+ {
+  "id": 316,
+  "gold": "Refuted",
+  "pred": "Supported",
+  "by": "llm",
+  "conf": 0.78,
+  "n_evidence": 3,
+  "reason": "The provided evidence confirms that the Government of Canada engaged with U.S. counterparts to ease border measures and eventually reopen the border to fully vaccinated travelers."
+ },
+ {
+  "id": 327,
+  "gold": "Supported",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "by": "llm",
+  "conf": 0.57,
+  "n_evidence": 4,
+  "reason": "While reports indicate Giménez received a salary increase as mayor in 2019, other evidence shows he previously cut his own salary and benefits by 50% upon taking office, making the claim of a flat 67% self-approved raise a cherry-picked representation of his tenure."
+ },
+ {
+  "id": 338,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 4,
+  "reason": ""
+ },
+ {
+  "id": 342,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "nli",
+  "conf": 0.95,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 355,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "llm",
+  "conf": 0.6,
+  "n_evidence": 2,
+  "reason": "Official reports confirm that the arson charges against Ignat Shchetinin and Sammy Scott Piatt were for isolated incidents involving store clothes and a pile of leaves, respectively, and were explicitly not connected to the Clackamas County wildfires."
+ },
+ {
+  "id": 367,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "by": "nli",
+  "conf": 0.93,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 391,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "llm",
+  "conf": 0.57,
+  "n_evidence": 3,
+  "reason": "The provided evidence confirms that New Brunswick schools planned to reopen for students in September 2020 following the initial suspension of classroom learning, and later documentation indicates a return to full in-person school operations with safety protocols in place."
+ },
+ {
+  "id": 410,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 0.99,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 415,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 426,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 1.0,
+  "n_evidence": 1,
+  "reason": ""
+ },
+ {
+  "id": 427,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Not Enough Evidence",
+  "by": "llm",
+  "conf": 0.88,
+  "n_evidence": 2,
+  "reason": "The provided sources advise voters to check specific state rules regarding mail-in ballots and do not explicitly confirm or refute the claim that voters should show up in person if poll workers cannot confirm receipt."
+ },
+ {
+  "id": 433,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "llm",
+  "conf": 0.89,
+  "n_evidence": 2,
+  "reason": "The provided evidence indicates that claims about Bill Gates and projects like ID2020 are part of widespread misinformation and conspiracy theories, and there is no evidence that President Trump ever had the authority to, or did, cancel the private NGO known as ID2020."
+ },
+ {
+  "id": 445,
+  "gold": "Refuted",
+  "pred": "Refuted",
+  "by": "nli",
+  "conf": 0.98,
+  "n_evidence": 5,
+  "reason": ""
+ },
+ {
+  "id": 463,
+  "gold": "Supported",
+  "pred": "Supported",
+  "by": "nli",
+  "conf": 0.9,
+  "n_evidence": 2,
+  "reason": ""
+ },
+ {
+  "id": 480,
+  "gold": "Conflicting Evidence/Cherrypicking",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "by": "llm",
+  "conf": 0.87,
+  "n_evidence": 5,
+  "reason": "While Biden has expressed opposition to for-profit charter schools and voucher-based school choice, the claim misrepresents his stance by suggesting he aims to close down all charter schools, when he actually supports public magnet schools and charter schools that do not operate for profit."
+ },
+ {
+  "id": 488,
+  "gold": "Refuted",
+  "pred": "Conflicting Evidence/Cherrypicking",
+  "by": "llm",
+  "conf": 0.62,
+  "n_evidence": 5,
+  "reason": "While there is evidence of civil unrest and looting in US cities and the presence of self-identified democratic socialists in Congress, the claim uses inflammatory language like 'mobs torched our cities' to generalize complex protest events and equates modern democratic socialism with the totalitarian systems fought in WWII, which is a subjective political characterization."
+ }
+]

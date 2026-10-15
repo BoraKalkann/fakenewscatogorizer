@@ -1,7 +1,8 @@
-from llm import Claims, Judgement, Kind, Relevant, ask  # önce: .env ve sertifika ayarı burada yükleniyor
+from llm import Claims, Judgement, Kind, Questions, Relevant, ask  # önce: .env ve sertifika ayarı burada yükleniyor
 
 import json
 import operator
+import time
 from typing import Annotated, TypedDict
 
 import trafilatura
@@ -69,28 +70,53 @@ def fan_out(state):
     return [Send("check_claim", {"claim": c, "own_domain": state["source"]["domain"]}) for c in state["claims"]]
 
 
-def same_event(claim, evidence):
+def search(text, **kw):
+    for attempt in range(3):  # Tavily ara sıra bağlantıyı koparıyor
+        try:
+            return tavily.search(text, **kw)["results"]
+        except Exception:
+            if attempt == 2:
+                raise
+            time.sleep(3 * (attempt + 1))
+
+
+def useful_evidence(claim, evidence):
+    # "aynı olay mı?" diye sormak çürüten kanıtı atıyordu: yaşanmamış bir olayı çürüten parça başka olayı anlatır
+    # ("WFP başkanı Hunter Biden" iddiasına karşı "WFP başkanı David Beasley")
     if not evidence:
         return []
     lines = "\n".join(f"[{i}] {e['text']}" for i, e in enumerate(evidence))
     out = ask(f"Claim: {claim}\n\nSnippets:\n{lines}\n\n"
-              "Which snippets are about the same person and the same event as the claim? "
-              "Sharing only a name is not enough. A snippet that contradicts the claim still counts.", Relevant)
+              "Which snippets help decide whether the claim is true or false? Keep snippets that confirm it, "
+              "contradict it, or give the real facts it is about (for example who actually holds a role the claim "
+              "names, or the real numbers). Drop snippets that only share a name or a keyword.", Relevant)
     return [evidence[i] for i in out.ids if i < len(evidence)]
+
+
+def questions(claim):
+    out = ask(f"Claim: {claim}\n\n"
+              "Write up to 3 short web search questions that would show whether this claim is true. "
+              "Ask about the underlying facts (did the event happen, who said what, what the real numbers are); "
+              "do not ask 'is it true that'. Each question must stand on its own: name the person or "
+              "organisation, never 'he' or 'the company'.", Questions)
+    return out.questions[:3]
 
 
 def check_claim(state):
     claim, text = state["claim"], state["claim"]["text"]
-    hits = (tavily.search(text, max_results=5, include_domains=factcheck.SITES)["results"]
-            + tavily.search(text, max_results=10)["results"])
+    hits = search(text, max_results=5, include_domains=factcheck.SITES)
+    for q in questions(text):
+        hits += search(q, max_results=5)
+    seen = set()
+    hits = [h for h in hits if not (h["url"] in seen or seen.add(h["url"]))]  # aynı sayfa birden çok soruda gelebilir
     evidence = []
     for h in hits:
         site, label = domain(h["url"]), lookup(h["url"])["label"]
         if state["own_domain"] not in site and label not in BAD_SOURCES and not site.endswith(SOCIAL):
             evidence.append({"url": h["url"], "source": label, "text": f"{h['title']}. {h['content']}"})
-    evidence = same_event(text, evidence)[:5]
+    evidence = useful_evidence(text, evidence)
 
-    # aynı iddiayı inceleyen bir fact-check varsa onun kararını kullan
+   
     for e in filter(lambda e: factcheck.is_factcheck(e["url"]), evidence):
         review = factcheck.review(e["url"])
         if not review:
@@ -101,7 +127,8 @@ def check_claim(state):
             return result(claim, verdict, 1.0, "factcheck", e["url"], [e], review[1])
 
     # fact-check özetleri yalanı alıntıladığı için kanıt olarak kullanılmıyor
-    evidence = [e for e in evidence if not factcheck.is_factcheck(e["url"])]
+    # 5'lik sınır ayıklamadan sonra: önce kesilince fact-check'ler kanıtın yerini kapatıyordu
+    evidence = [e for e in evidence if not factcheck.is_factcheck(e["url"])][:5]
     if not evidence:  # boş kanıtta model Refuted'a kayıyor
         return result(claim, NEE, 1.0, "none", "Kanıt bulunamadı.")
 
