@@ -9,3 +9,9 @@ models/
 *.pt
 *.bin
 node_modules/
+
+# yerelde kalanlar
+experiments/
+dataset/
+docs/
+Hafta*_Proje_raporu.docx
