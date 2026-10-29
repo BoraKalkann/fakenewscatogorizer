@@ -33,6 +33,10 @@ class Relevant(BaseModel):
     ids: list[int]
 
 
+class SameClaim(BaseModel):
+    same: bool
+
+
 class Judgement(BaseModel):
     verdict: Literal["Supported", "Refuted", "Not Enough Evidence", "Conflicting Evidence/Cherrypicking"]
     reason: str

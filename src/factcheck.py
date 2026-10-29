@@ -1,3 +1,4 @@
+import html
 import json
 import re
 
@@ -33,7 +34,10 @@ def review(url):
             continue
         for item in data if isinstance(data, list) else data.get("@graph", [data]):
             if isinstance(item, dict) and item.get("@type") == "ClaimReview":
-                return item.get("claimReviewed", ""), item.get("reviewRating", {}).get("alternateName", "")
+                # Snopes metni HTML kodlu bırakıyor: "Clinton&#039;s" → "Clinton's"
+                reviewed_claim = html.unescape(item.get("claimReviewed", ""))
+                rating = html.unescape(item.get("reviewRating", {}).get("alternateName", ""))
+                return reviewed_claim, rating
     return None
 
 
