@@ -3,9 +3,9 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
-# Veritabanı kodu yalnız bu dosyada: PostgreSQL'e geçilirse sadece burası değişir
+
 DB = Path(__file__).resolve().parent.parent / "cache.db"
-VERSION = 1  # hattı değiştirince artır; eski kayıtlar silinmiyor, ne yapılacağına o zaman karar veriyoruz
+VERSION = 2  
 TRACKING = ("utm_", "fbclid", "gclid", "ref", "ocid", "cmpid")
 
 con = sqlite3.connect(DB)
@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS evidence (
 
 
 def norm_url(url):
-    # Aynı haber farklı linklerle gelebiliyor: http/https, www./m., takip parametreleri, #bölüm, sondaki /
     parts = urlsplit(url.strip())
     host = parts.netloc.lower()
     for prefix in ("www.", "m."):
@@ -50,7 +49,6 @@ def get_article(url):
         results.append({"text": claim, "verdict": c_verdict, "confidence": confidence,
                         "decided_by": decided_by, "reason": reason, "evidence": evidence})
 
-    # graph.app.invoke ile aynı biçimde dönüyor ki main.py ikisini ayırt etmeden gösterebilsin
     return {"url": url, "title": title, "text": text, "source": {"domain": domain, "label": label},
             "results": results, "verdict": verdict, "score": score, "kind": kind, "kind_reason": kind_reason}
 
@@ -58,7 +56,7 @@ def get_article(url):
 def put_article(original_url, out):
     url = norm_url(original_url)
     source = f"{out['source']['domain']} / {out['source']['label']}"
-    with con:  # hepsi yazılır ya da hiçbiri: yarım kalmış haber kaydı olmasın
+    with con:
         con.execute("INSERT INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                     (url, original_url, out["title"], out["text"], source, out["verdict"], out["score"],
                      out["kind"], out["kind_reason"], datetime.now().isoformat(timespec="seconds"), VERSION))

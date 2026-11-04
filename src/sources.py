@@ -14,16 +14,26 @@ lin = {r["domain"]: float(r["pc1"]) for r in csv.DictReader(open(DATA / "lin2023
 
 
 def domain(url):
-    if "web.archive.org/web/" in url:  # https://web.archive.org/web/<tarih>/<asıl link> → asıl link
+    if "web.archive.org/web/" in url:  
         url = url.split("/", 5)[5]
     return (urlparse(url).hostname or "").removeprefix("www.")
 
 
+def lin_label(score):
+    if score >= 0.75:
+        return "generally_reliable"
+    if score < 0.35:
+        return "deprecated"
+    return "no_consensus"
+
+
 def lookup(url):
     parts = domain(url).split(".")
-    candidates = [".".join(parts[i:]) for i in range(len(parts) - 1)]  # edition.cnn.com, cnn.com
+    candidates = [".".join(parts[i:]) for i in range(len(parts) - 1)] 
     for table, label in ((SATIRE, "satire"), (wp, None), (lin, "lin")):
         for d in candidates:
             if d in table:
+                if label == "lin":
+                    label = lin_label(lin[d])
                 return {"domain": d, "label": label or wp[d], "score": lin.get(d)}
     return {"domain": domain(url), "label": "unknown", "score": None}
