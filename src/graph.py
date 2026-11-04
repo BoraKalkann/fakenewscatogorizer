@@ -10,6 +10,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.types import Send
 from tavily import TavilyClient
 
+import cache
 import factcheck
 from sources import domain, lookup
 from verdict import judge
@@ -287,3 +288,12 @@ g.add_edge("check_claim", "report")
 g.add_edge("report", "classify")
 g.add_edge("classify", END)
 app = g.compile()
+
+
+def check_url(url):
+    # Daha önce bakılan link: arama yok, Gemini yok, anında sonuç
+    if hit := cache.get_article(url):
+        return hit
+    out = app.invoke({"url": url})
+    cache.put_article(url, out)
+    return out

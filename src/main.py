@@ -1,4 +1,4 @@
-from graph import app
+from graph import check_url
 
 
 def show(out):
@@ -16,6 +16,6 @@ def show(out):
 # model bir kez yükleniyor; sonra program kapanmadan link bekliyor
 while url := input("\nHaber linki (çıkmak için Enter): ").strip():
     try:
-        show(app.invoke({"url": url}))
+        show(check_url(url))
     except Exception as e:
         print("Hata:", e)
