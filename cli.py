@@ -1,8 +1,9 @@
-from graph import check_url
+from backend import database
+from engine.pipeline import analyze
 
 
 def show(out):
-    print(out["title"], "|", out["source"])
+    print(out["title"], "|", out["source"]["domain"], out["source"]["label"])
     for r in out.get("results", []):
         print(f"{r['verdict']:36} {r['confidence']:.2f} {r['decided_by']:9} | {r['text']}")
         for e in r["evidence"][:2]:
@@ -13,6 +14,6 @@ def show(out):
 
 while url := input("\nHaber linki (çıkmak için Enter): ").strip():
     try:
-        show(check_url(url))
+        show(database.check_url(url, analyze))
     except Exception as e:
         print("Hata:", e)

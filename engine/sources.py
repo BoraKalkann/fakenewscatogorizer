@@ -2,7 +2,7 @@ import csv
 from pathlib import Path
 from urllib.parse import urlparse
 
-DATA = Path(__file__).resolve().parents[1] / "dataset"
+DATA = Path(__file__).resolve().parents[1] / "data"
 SATIRE = {"theonion.com", "babylonbee.com", "clickhole.com", "thebeaverton.com", "newsthump.com"}
 
 wp = {}

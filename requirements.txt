@@ -1,0 +1,14 @@
+fastapi>=0.115
+google-genai>=2.29
+langgraph>=1.2
+pydantic>=2.14
+python-dotenv>=1.1
+requests>=2.32
+sentencepiece>=0.2
+protobuf
+tavily-python>=0.8
+torch>=2.7
+trafilatura>=2.3
+transformers>=5.19
+truststore>=0.10
+uvicorn>=0.30

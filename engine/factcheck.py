@@ -3,7 +3,7 @@ import json
 import re
 
 import requests
-from sources import domain
+from engine.sources import domain
 
 SITES = ["snopes.com", "politifact.com", "factcheck.org", "fullfact.org", "factcheck.afp.com",
          "leadstories.com", "africacheck.org", "checkyourfact.com", "boomlive.in", "altnews.in"]

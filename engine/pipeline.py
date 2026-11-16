@@ -1,4 +1,4 @@
-from llm import Claims, Judgement, Kind, Questions, Relevant, SameClaim, ask  # önce: .env ve sertifika ayarı burada yükleniyor
+from engine.llm import Claims, Judgement, Kind, Questions, Relevant, SameClaim, ask  # önce: .env ve sertifika ayarı burada yükleniyor
 
 import json
 import operator
@@ -10,10 +10,9 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.types import Send
 from tavily import TavilyClient
 
-import cache
-import factcheck
-from sources import domain, lookup
-from verdict import judge
+from engine import factcheck
+from engine.nli import judge
+from engine.sources import domain, lookup
 
 tavily = TavilyClient()
 THRESHOLD = 0.97
@@ -264,9 +263,6 @@ g.add_edge("classify", END)
 app = g.compile()
 
 
-def check_url(url):
-    if hit := cache.get_article(url):
-        return hit
-    out = app.invoke({"url": url})
-    cache.put_article(url, out)
-    return out
+def analyze(url):
+    """Haberi baştan sona analiz eder. Önbelleğe bakmaz; o iş backend'in."""
+    return app.invoke({"url": url})
