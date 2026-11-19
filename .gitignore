@@ -9,6 +9,7 @@ models/
 *.pt
 *.bin
 node_modules/
+dist/
 
 # yerelde kalanlar
 experiments/

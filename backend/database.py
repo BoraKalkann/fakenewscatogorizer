@@ -5,14 +5,14 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
 DB = Path(__file__).resolve().parents[1] / "db" / "fakenews.db"
-VERSION = 3
+VERSION = 4
 TRACKING = ("utm_", "fbclid", "gclid", "ref", "ocid", "cmpid")
 
 DB.parent.mkdir(exist_ok=True)
 con = sqlite3.connect(DB, check_same_thread=False)  # FastAPI istekleri farklı thread'lerden gelir
 con.executescript("""
 CREATE TABLE IF NOT EXISTS articles (
-    url TEXT PRIMARY KEY, original_url TEXT, title TEXT, date TEXT, text TEXT,
+    url TEXT PRIMARY KEY, original_url TEXT, title TEXT, date TEXT, text TEXT, image TEXT,
     source_domain TEXT, source_label TEXT, source_score REAL,
     verdict TEXT, score REAL, kind TEXT, kind_reason TEXT, checked_at TEXT, version INTEGER);
 CREATE TABLE IF NOT EXISTS claims (
@@ -35,11 +35,11 @@ def norm_url(url):
 
 def get_article(url):
     url = norm_url(url)
-    row = con.execute("SELECT title, date, text, source_domain, source_label, source_score, "
+    row = con.execute("SELECT title, date, text, image, source_domain, source_label, source_score, "
                       "verdict, score, kind, kind_reason FROM articles WHERE url = ?", (url,)).fetchone()
     if not row:
         return None
-    title, date, text, s_domain, s_label, s_score, verdict, score, kind, kind_reason = row
+    title, date, text, image, s_domain, s_label, s_score, verdict, score, kind, kind_reason = row
 
     # iddialar ve her iddianın kanıtları
     results = []
@@ -53,17 +53,17 @@ def get_article(url):
         results.append({"text": claim, "sentence": sentence, "verdict": c_verdict, "confidence": confidence,
                         "decided_by": decided_by, "reason": reason, "rating": rating, "evidence": evidence})
 
-    return {"url": url, "title": title, "date": date, "text": text,
+    return {"url": url, "title": title, "date": date, "text": text, "image": image,
             "source": {"domain": s_domain, "label": s_label, "score": s_score},
             "results": results, "verdict": verdict, "score": score, "kind": kind, "kind_reason": kind_reason}
 
 
 def list_articles():
-    rows = con.execute("SELECT url, title, source_domain, verdict, kind, checked_at "
+    rows = con.execute("SELECT url, title, image, source_domain, verdict, kind, checked_at "
                        "FROM articles ORDER BY checked_at DESC").fetchall()
     articles = []
-    for url, title, s_domain, verdict, kind, checked_at in rows:
-        articles.append({"url": url, "title": title, "domain": s_domain, "verdict": verdict,
+    for url, title, image, s_domain, verdict, kind, checked_at in rows:
+        articles.append({"url": url, "title": title, "image": image, "domain": s_domain, "verdict": verdict,
                          "kind": kind, "checked_at": checked_at})
     return articles
 
@@ -83,8 +83,8 @@ def put_article(original_url, out):
     url = norm_url(original_url)
     source = out["source"]
     with con:
-        con.execute("INSERT INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                    (url, original_url, out["title"], out["date"], out["text"],
+        con.execute("INSERT INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (url, original_url, out["title"], out["date"], out["text"], out.get("image"),
                      source["domain"], source["label"], source["score"],
                      out["verdict"], out["score"], out["kind"], out["kind_reason"],
                      datetime.now().isoformat(timespec="seconds"), VERSION))

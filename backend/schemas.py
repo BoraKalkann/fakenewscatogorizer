@@ -37,6 +37,7 @@ class Article(BaseModel):
     title: str
     date: str
     text: str
+    image: str | None   # haberin kapak resmi linki; yoksa null
     source: Source
     verdict: str
     score: float
@@ -48,6 +49,7 @@ class Article(BaseModel):
 class ArticleSummary(BaseModel):
     url: str
     title: str
+    image: str | None
     domain: str
     verdict: str
     kind: str

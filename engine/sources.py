@@ -3,7 +3,8 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 DATA = Path(__file__).resolve().parents[1] / "data"
-SATIRE = {"theonion.com", "babylonbee.com", "clickhole.com", "thebeaverton.com", "newsthump.com"}
+SATIRE = {"theonion.com", "babylonbee.com", "clickhole.com", "thebeaverton.com", "newsthump.com",
+          "thehardtimes.net"}
 
 wp = {}
 for r in csv.DictReader(open(DATA / "wp_rsp.csv", encoding="utf-8")):

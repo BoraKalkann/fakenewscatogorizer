@@ -27,6 +27,7 @@ class State(TypedDict):
     title: str
     date: str
     text: str
+    image: str | None
     source: dict
     claims: list[dict]
     results: Annotated[list[dict], operator.add]
@@ -50,7 +51,8 @@ def fetch_article(state):
     date = page.get("date")
     if not date:  
         date = "unknown"
-    return {"title": page["title"], "date": date, "text": page["text"]}
+    image = page.get("image")  # sayfanın kapak resmi (og:image); yoksa None
+    return {"title": page["title"], "date": date, "text": page["text"], "image": image}
 
 
 def source_check(state):
@@ -266,3 +268,31 @@ app = g.compile()
 def analyze(url):
     """Haberi baştan sona analiz eder. Önbelleğe bakmaz; o iş backend'in."""
     return app.invoke({"url": url})
+
+
+def analyze_stream(url):
+    """analyze ile aynı işi adım adım yapar. Her düğüm bitince (düğüm adı, o düğümün çıktısı) verir;
+    en sonda bütün çıktıları birleştirip ("done", out) verir. Arayüzdeki canlı ilerleme bunu kullanır."""
+    out = {"url": url, "results": []}
+    for update in app.stream({"url": url}, stream_mode="updates"):
+        for node, values in update.items():
+            if not values:
+                continue
+            # düğümün çıktısını genel sonuca ekle (iddia sonuçları birikir, diğerleri yazılır)
+            for key, value in values.items():
+                if key == "results":
+                    out["results"].extend(value)
+                else:
+                    out[key] = value
+            yield node, values
+
+    # iddia sonuçları bitiş sırasıyla geldi; analyze ile aynı olsun diye haberdeki iddia sırasına diz
+    ordered = []
+    for claim in out.get("claims", []):
+        for r in out["results"]:
+            if r["text"] == claim["text"]:
+                ordered.append(r)
+                break
+    if len(ordered) == len(out["results"]):
+        out["results"] = ordered
+    yield "done", out

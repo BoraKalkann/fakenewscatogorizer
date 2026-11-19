@@ -26,6 +26,7 @@ Sonuçlar `db/fakenews.db`'ye (SQLite) yazılır. Aynı link tekrar sorulduğund
 | `backend/schemas.py` | API'nin istek/cevap şemaları |
 | `backend/database.py` | SQLite veritabanı (`db/fakenews.db`) |
 | `cli.py` | Terminalden deneme |
+| `frontend/` | React arayüzü (Vite) |
 
 `engine/` sadece analiz yapar, veritabanını bilmez. Veritabanına bakmak ve sonucu kaydetmek `backend/`'in işidir.
 
@@ -58,6 +59,19 @@ Swagger arayüzü: http://127.0.0.1:8000/docs
 | `POST /api/check` | Gövde `{"url": "..."}`. Haberi kontrol eder ve aşağıdaki çıktıyı döndürür. Sayfa çekilemezse 400 döner. |
 | `GET /api/articles` | Daha önce kontrol edilen haberlerin listesi (en yeni en üstte) |
 | `GET /api/article?url=...` | Önbellekteki tek bir haberin sonucu. Yeni kontrol başlatmaz, haber yoksa 404 döner. |
+| `GET /api/check/stream?url=...` | Arayüzün kullandığı canlı sürüm (Server-Sent Events). Analiz sürerken her adım bitince bir olay gönderir: `fetch_article` (başlık, tarih, resim), `source_check`, `extract_claims`, `check_claim` (iddia başına bir kez), `report`, `classify`; en sonda `done` ile tam çıktıyı, hata olursa `failed` ile `{"detail": ...}` gönderir. Kayıtlı haberde doğrudan `done` gelir. |
+
+## Arayüz (React)
+
+Node.js (LTS) gerekir. Backend açıkken ikinci bir terminalde:
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+Arayüz http://localhost:5173 adresinde açılır. `/api` ile başlayan istekler Vite tarafından backend'e (8000 portu) yönlendirilir, bu yüzden kodda yalnız `fetch("/api/check", ...)` yazmak yeterli.
 
 ## Motoru doğrudan kullanmak
 
@@ -83,6 +97,7 @@ out = database.check_url("https://...", analyze)   # önce veritabanına bakar, 
   "title": "Haber başlığı",
   "date": "2024-05-01",
   "text": "Haberin tam metni...",
+  "image": "https://.../kapak.jpg",
   "source": {"domain": "example.com", "label": "generally_reliable", "score": 0.91},
   "verdict": "Yanlış",
   "score": -0.85,
@@ -112,6 +127,7 @@ Alanların alabileceği değerler:
 - **`results[].verdict`** (iddianın sonucu): `Supported`, `Refuted`, `Not Enough Evidence`, `Conflicting Evidence/Cherrypicking`
 - **`results[].decided_by`**: `factcheck`, `nli`, `llm`, `none` (kanıt bulunamadı). `factcheck` olduğunda `reason` fact-check sayfasının linkini, `rating` ise o sitenin verdiği etiketi içerir.
 - **`results[].sentence`**: Haber metninde vurgulamak için kullanılabilir. Gemini bu cümleyi metinden kopyalar, ama birebir eşleşmediği durumlar olabilir.
+- **`image`**: Haberin kapak resminin linki (sayfanın paylaşım resmi). Resim indirilmez, arayüz doğrudan bu linkten gösterir. Resmi olmayan sayfalarda `null` gelir; arayüz o zaman resimsiz göstermeli. `GET /api/articles` listesinde de var.
 - Hiciv sitelerinde `results` boş gelir.
 
 ## Veri
